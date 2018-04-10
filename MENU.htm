@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body onload=startTime()>
+<style>
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    color: yellow;
+}
+
+</style>
+<script type="text/javascript">
+
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    m = checkTime(m);
+    document.getElementById('txt').innerHTML =
+    h + ":" + m;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+
+<div class="container">
+<img src="Placeholder_Menu2_Musica.png" usemap="#backmap">
+<div id="txt" class="top-left"></div>
+<map name="backmap">
+  		<area shape="rect" coords="144,144,106,105" alt="menu" href="ECRA_PRINCIPAL.html" >
+	</map>
+</div>
+
+
+</body>

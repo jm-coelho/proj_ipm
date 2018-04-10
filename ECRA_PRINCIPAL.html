@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<body onload="startTime()">
+<style>
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    color: yellow;
+}
+
+</style>
+<script type="text/javascript">
+function swapToMenu(){
+   if (document.getElementById("pic").src.endsWith("Placeholder_EcraPrincipal_2.png") != -1){
+      document.getElementById("pic").src = "Placeholder_Menu1_Mapa.png"; 
+   } 
+   document.getElementById('id_menu1').coords="0,0,0";
+   document.getElementById('id_menu2').coords="144,144,106,105";
+}
+
+function swapToPrincipal(){
+   if (document.getElementById("pic").src.endsWith("Placeholder_Menu1_Mapa.png") != -1){
+      document.getElementById("pic").src = "Placeholder_EcraPrincipal_2.png"; 
+   } 
+   document.getElementById('id_menu1').coords="70,125,20";
+   document.getElementById('id_menu2').coords="0,0,0,0";
+}
+
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    m = checkTime(m);
+    document.getElementById('txt').innerHTML =
+    h + ":" + m;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+
+
+<div class="container">
+	<img src="Placeholder_EcraPrincipal_2.png" id="pic" width="144" height="144" alt="Menu" usemap="#menus">
+	<div id="txt" class="top-left"></div>
+	<map name="menus">
+  		<area shape="circle" id="id_menu1" coords="70,125,20" alt="menu" onclick="swapToMenu()">
+  		<area shape="rect" id="id_menu2" coords="0,0,0,0" alt="menu" onclick="swapToPrincipal()">
+	</map>
+</div>
+
+
+
+
+</body>
+</html>
+
